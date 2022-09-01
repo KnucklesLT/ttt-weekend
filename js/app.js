@@ -24,19 +24,19 @@ let board, turn, winner
 init()
 
 function init(){
-  board = [null, null, null, null, null, null, null, null, null]
+  board = [1, -1, null, null, -1, null, null, -1, null]
   turn = 1
   winner = null
   render()
 }
 
-function render() {
+function render() { 
   board.forEach((element, index) => {
     element = squareEls[index]
-    console.log(element.value);
-    if(element.getAttribute('data-value') === '-1'){
+  
+    if(board[index]=== -1){
       element.style.backgroundColor = '#A9F0D1'
-    } else if (element.getAttribute('data-value') === '1'){
+    } else if (board[index] === 1){
       element.style.backgroundColor = '#FFA69E'
     }else {
       element.style.backgroundColor = '#FFF7F8'
