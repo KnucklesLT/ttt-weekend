@@ -26,3 +26,9 @@ div {
   text-align: center;
   vertical-align: middle;
 }
+
+.squares {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
