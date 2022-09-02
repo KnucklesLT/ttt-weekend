@@ -1,5 +1,5 @@
 body {
-    background-color: #FFF7F8;
+    background-color: #355070;
 	/* Use a system font, if none are available use an available sans-sarif   font */
 	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
 		Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
@@ -9,6 +9,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  color: white;
 }
 
 section.board {
@@ -19,7 +20,7 @@ section.board {
 }
 
 div {
-  border: 3px solid black;
+  border: 3px solid white;
   font-size: 8vmin;
   text-align: center;
   vertical-align: middle;

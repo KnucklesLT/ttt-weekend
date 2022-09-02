@@ -46,13 +46,13 @@ function render() {
     element = squareEls[index]
   
     if(board[index]=== 1){
-      element.style.backgroundColor = '#A9F0D1'
+      element.style.backgroundColor = '#b56576'
       element.textContent = 'X'
     } else if (board[index] === -1){
-      element.style.backgroundColor = '#FFA69E'
+      element.style.backgroundColor = '#6d597a'
       element.textContent = 'O'
     }else {
-      element.style.backgroundColor = '#FFF7F8'
+      element.style.backgroundColor = '#355070'
       element.textContent = ''
     }
   })
@@ -61,11 +61,12 @@ function render() {
     turn === 1 ? messageEl.textContent=`Player X. Your Turn`  : messageEl.textContent = `Player O. Your Turn`
   } else if (winner === 'T'){
     messageEl.textContent = `It's a Tie!`
-    squareEls.forEach(element => (element.textContent='👔', element.style.backgroundColor = "#fec89a"))
+    messageEl.className = "animate__animated animate__rubberBand"
+    squareEls.forEach(element => (element.textContent='👔', element.style.backgroundColor = "#eaac8b"))
   } else {
     winner === 1 ? messageEl.textContent='Player X Wins!' : messageEl.textContent = 'Player O Wins!'
-    squareEls.forEach(element => winner === 1 ? (element.textContent = 'X' , element.style.backgroundColor = '#A9F0D1') 
-                                              : (element.textContent = 'O', element.style.backgroundColor = '#FFA69E'))
+    squareEls.forEach(element => winner === 1 ? (element.textContent = 'X' , element.style.backgroundColor = '#b56576') 
+                                              : (element.textContent = 'O', element.style.backgroundColor = '#6d597a'))
     confetti.start(2000)
   }
 }
