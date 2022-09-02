@@ -21,7 +21,7 @@ let board, turn, winner
 /*------------------------ Cached Element References ------------------------*/
 let boardSquares = document.querySelector('section')
 let resetBtnEl = document.querySelector('.reset-button')
-
+let introHeader = document.querySelector('h1')
 
 /*----------------------------- Event Listeners -----------------------------*/
 
@@ -35,10 +35,13 @@ function init(){
   board = [null, null, null, null, null, null, null, null, null]
   turn = 1
   winner = null
+  
   render()
 }
 
 function render() { 
+  introHeader.setAttribute('class',"animate__animated animate__bounce")
+
   board.forEach((element, index) => {
     element = squareEls[index]
   
@@ -55,7 +58,7 @@ function render() {
   })
   
   if(!winner){
-    turn === 1 ? messageEl.textContent=`Player X. Your Turn` : messageEl.textContent = `Player O. Your Turn`
+    turn === 1 ? messageEl.textContent=`Player X. Your Turn`  : messageEl.textContent = `Player O. Your Turn`
   } else if (winner === 'T'){
     messageEl.textContent = `It's a Tie!`
   } else {
@@ -75,7 +78,9 @@ function handleClick (evt){
   turn *= -1
 
   winner = getWinner()
+  
   render()
+  
 }
 
 function getWinner(){
