@@ -51,13 +51,13 @@ function render() {
       element.style.backgroundColor = '#FFF7F8'
     }
   })
-  
-  if (winner === null){
-    turn === 1 ? messageEl.textContent = `It's Player X's turn` : `It's Player O's turn`
+  console.log(winner)
+  if(!winner){
+    turn === 1 ? messageEl.textContent=`It's Player X's Turn` : messageEl.textContent = `It's Player O's Turn`
   } else if (winner === 'T'){
-    messageEl.textContent = `It's a tie!`
+    messageEl.textContent = `it's a tie`
   } else {
-    winner === 1 ? messageEl.textContent = `Player X wins!`  : messageEl.textContent = `Player O Wins!`
+    winner === 1 ? messageEl.textContent='x win' : messageEl.textContent = 'o win'
   }
 }
 
