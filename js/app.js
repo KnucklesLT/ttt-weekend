@@ -42,10 +42,10 @@ function render() {
   board.forEach((element, index) => {
     element = squareEls[index]
   
-    if(board[index]=== -1){
+    if(board[index]=== 1){
       element.style.backgroundColor = '#A9F0D1'
       element.textContent = 'X'
-    } else if (board[index] === 1){
+    } else if (board[index] === -1){
       element.style.backgroundColor = '#FFA69E'
       element.textContent = 'O'
     }else {
@@ -55,11 +55,11 @@ function render() {
   })
   
   if(!winner){
-    turn === 1 ? messageEl.textContent=`It's Player X's Turn` : messageEl.textContent = `It's Player O's Turn`
+    turn === 1 ? messageEl.textContent=`Player X. Your Turn` : messageEl.textContent = `Player O. Your Turn`
   } else if (winner === 'T'){
-    messageEl.textContent = `it's a tie`
+    messageEl.textContent = `It's a Tie!`
   } else {
-    winner === 1 ? messageEl.textContent='x win' : messageEl.textContent = 'o win'
+    winner === 1 ? messageEl.textContent='Player X Wins!' : messageEl.textContent = 'Player O Wins!'
   }
 }
 
@@ -70,7 +70,24 @@ function handleClick (evt){
   }
   
   board[sqIdx] = turn
+  
   turn *= -1
 
+  winner = getWinner()
   render()
 }
+
+function getWinner(){
+  for(let i =0; i< winningCombos.length; i ++){
+    if(board[winningCombos[i][0]] + board[winningCombos[i][1]] + board[winningCombos[i][2]] === 3){
+      return 1
+    } else if (board[winningCombos[i][0]] + board[winningCombos[i][1]] + board[winningCombos[i][2]] === -3) {
+      return -1
+    }
+  }
+  if (!board.includes(null)){
+    return 'T'
+  }else {
+    return null
+  }
+  }
