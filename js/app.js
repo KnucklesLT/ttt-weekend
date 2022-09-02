@@ -78,11 +78,9 @@ function handleClick (evt){
 }
 
 function getWinner(){
-  for(let i =0; i< winningCombos.length; i ++){
-    if(board[winningCombos[i][0]] + board[winningCombos[i][1]] + board[winningCombos[i][2]] === 3){
-      return 1
-    } else if (board[winningCombos[i][0]] + board[winningCombos[i][1]] + board[winningCombos[i][2]] === -3) {
-      return -1
+  for(combo of winningCombos){
+    if (Math.abs(board[combo[0]] + board[combo[1]] + board[combo[2]]) === 3){
+      return board[combo[0]]
     }
   }
   if (!board.includes(null)){
@@ -90,4 +88,4 @@ function getWinner(){
   }else {
     return null
   }
-  }
+}
