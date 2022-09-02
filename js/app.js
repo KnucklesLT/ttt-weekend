@@ -20,12 +20,13 @@ let board, turn, winner
 
 /*------------------------ Cached Element References ------------------------*/
 let boardSquares = document.querySelector('section')
+let resetButton = document.querySelector('.reset-button')
 
 
 /*----------------------------- Event Listeners -----------------------------*/
 
 boardSquares.addEventListener('click',handleClick)
-
+resetButton.addEventListener('click', init)
 /*-------------------------------- Functions --------------------------------*/
 
 init()
@@ -49,6 +50,7 @@ function render() {
       element.textContent = 'O'
     }else {
       element.style.backgroundColor = '#FFF7F8'
+      element.textContent = ''
     }
   })
   
