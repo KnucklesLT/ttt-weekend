@@ -60,6 +60,7 @@ function render() {
     messageEl.textContent = `It's a Tie!`
   } else {
     winner === 1 ? messageEl.textContent='Player X Wins!' : messageEl.textContent = 'Player O Wins!'
+    confetti.start(2000)
   }
 }
 
