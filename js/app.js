@@ -20,13 +20,13 @@ let board, turn, winner
 
 /*------------------------ Cached Element References ------------------------*/
 let boardSquares = document.querySelector('section')
-let resetButton = document.querySelector('.reset-button')
+let resetBtnEl = document.querySelector('.reset-button')
 
 
 /*----------------------------- Event Listeners -----------------------------*/
 
 boardSquares.addEventListener('click',handleClick)
-resetButton.addEventListener('click', init)
+resetBtnEl.addEventListener('click', init)
 /*-------------------------------- Functions --------------------------------*/
 
 init()
