@@ -70,9 +70,13 @@ function render() {
 function handleClick (evt){
   const sqIdx = parseInt(evt.target.id.replace('sq',''))
   if(board[sqIdx] || !!winner) {
+    messageEl.textContent = 'Space already taken!'
+    messageEl.setAttribute('class','animate__animated animate__tada')
+    
     return
   }
-  
+  messageEl.setAttribute('class', ' ')
+
   board[sqIdx] = turn
   
   turn *= -1
