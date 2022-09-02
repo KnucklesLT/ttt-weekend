@@ -61,8 +61,11 @@ function render() {
     turn === 1 ? messageEl.textContent=`Player X. Your Turn`  : messageEl.textContent = `Player O. Your Turn`
   } else if (winner === 'T'){
     messageEl.textContent = `It's a Tie!`
+    
   } else {
     winner === 1 ? messageEl.textContent='Player X Wins!' : messageEl.textContent = 'Player O Wins!'
+    squareEls.forEach(element => winner === 1 ? (element.textContent = 'X' , element.style.backgroundColor = '#A9F0D1') 
+                                              : (element.textContent = 'O', element.style.backgroundColor = '#FFA69E'))
     confetti.start(2000)
   }
 }
