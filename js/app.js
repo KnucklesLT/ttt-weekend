@@ -51,7 +51,7 @@ function render() {
       element.style.backgroundColor = '#FFF7F8'
     }
   })
-  console.log(winner)
+  
   if(!winner){
     turn === 1 ? messageEl.textContent=`It's Player X's Turn` : messageEl.textContent = `It's Player O's Turn`
   } else if (winner === 'T'){
@@ -62,10 +62,13 @@ function render() {
 }
 
 function handleClick (evt){
-  sqIdx = parseInt(evt.target.id.replace('sq',''))
+  const sqIdx = parseInt(evt.target.id.replace('sq',''))
   if(board[sqIdx] || !!winner) {
     return
   }
+  
   board[sqIdx] = turn
   turn *= -1
+
+  render()
 }
